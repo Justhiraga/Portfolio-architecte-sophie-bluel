@@ -1,17 +1,3 @@
-const categories = {
-  method: "GET",
-  redirect: "follow"
-};
-
-fetch("http://localhost:5678/api/categories", categories)
-  .then((response) => response.json())
-  .then((categories) => affichercate(categories))
-  .catch((error) => console.error(error));
-
-function affichercate(categories){
-  let filters = document
-}
-
 //WORKS*******************************//
 const works = {
   method: "GET",
@@ -20,12 +6,10 @@ const works = {
 
 fetch("http://localhost:5678/api/works", works)
   .then((response) => response.json())
-  .then((works) => {
-    affichergall(works);
-  })
+  .then((works) => {affichergall(works)})
   .catch((error) => console.error(error));
 
-function affichergall(works) {
+function affichergall(works , categoriesid = null) {
   let Gallery = document.querySelector(".gallery");
   works.forEach(element => {
     let figure = document.createElement("figure");
@@ -38,5 +22,23 @@ function affichergall(works) {
     figure.appendChild(text);
   });
 }
+//CATEGORIES*********************************//
+const categories = {
+  method: "GET",
+  redirect: "follow"
+};
 
+fetch("http://localhost:5678/api/categories", categories)
+  .then((response) => response.json())
+  .then((categories) => affichercate(categories))
+  .catch((error) => console.error(error));
+
+function affichercate(categories){
+  let filtres = document.querySelector(".filtres");
+  categories.forEach(element => {
+    let text = document.createElement("button");
+    text.textContent = element.name;
+    filtres.appendChild(text);
+  })
+}
  
