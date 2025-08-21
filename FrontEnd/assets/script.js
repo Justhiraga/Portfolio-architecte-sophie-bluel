@@ -1,15 +1,24 @@
 //WORKS*******************************//
-const works = {
+let myset = new Set();
+
+
+
+
+const worksRequestOptions = {
   method: "GET",
   redirect: "follow"
 };
 
-fetch("http://localhost:5678/api/works", works)
+fetch("http://localhost:5678/api/works", worksRequestOptions)
   .then((response) => response.json())
-  .then((works) => {affichergall(works)})
-  .catch((error) => console.error(error));
+  .then(
+    (works) => {
+      afficherall(works);
+      exctractcategories(works);
+    }
+).catch((error) => console.error(error));
 
-function affichergall(works , categoriesid = null) {
+function afficherall(works) {
   let Gallery = document.querySelector(".gallery");
   works.forEach(element => {
     let figure = document.createElement("figure");
@@ -22,23 +31,43 @@ function affichergall(works , categoriesid = null) {
     figure.appendChild(text);
   });
 }
-//CATEGORIES*********************************//
-const categories = {
-  method: "GET",
-  redirect: "follow"
-};
 
-fetch("http://localhost:5678/api/categories", categories)
-  .then((response) => response.json())
-  .then((categories) => affichercate(categories))
-  .catch((error) => console.error(error));
-
-function affichercate(categories){
-  let filtres = document.querySelector(".filtres");
-  categories.forEach(element => {
-    let text = document.createElement("button");
-    text.textContent = element.name;
-    filtres.appendChild(text);
+function exctractcategories(works){
+  myset.add("Tous:0");
+  works.forEach(element => {
+    myset.add(element.category.name + ":" + element.category.id)
   })
+  myset.forEach(element => createFilters(element));
+  
 }
- 
+
+function createFilters(element){
+  let categories = document.querySelector(".filtres");
+  let category = element.split(':')
+  let text = document.createElement("button");
+  text.textContent = category[0];
+  categories.appendChild(text);
+  text.addEventListener("click", function() {
+    filterWorks(category[1]);
+  });
+}
+
+function filterWorks(categoryId) {
+  let Gallery = document.querySelector(".gallery");
+  Gallery.innerHTML = "";
+  const worksRequestOptions = {
+    method: "GET",
+    redirect: "follow"
+  };
+
+  fetch("http://localhost:5678/api/works", worksRequestOptions)
+    .then((response) => response.json())
+    .then((works) => {
+      if( categoryId == "0") {
+        afficherall(works);
+      }
+      const filteredWorks = works.filter(work => work.category.id == categoryId);
+      afficherall(filteredWorks);
+    })
+    .catch((error) => console.error(error));
+}
