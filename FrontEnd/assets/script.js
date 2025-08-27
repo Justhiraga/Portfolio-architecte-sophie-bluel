@@ -1,4 +1,6 @@
 //WORKS*******************************//
+let stockworks = [];
+
 let myset = new Set();
 
 
@@ -13,6 +15,7 @@ fetch("http://localhost:5678/api/works", worksRequestOptions)
   .then((response) => response.json())
   .then(
     (works) => {
+      stockworks = works;
       afficherall(works);
       exctractcategories(works);
     }
@@ -38,7 +41,6 @@ function exctractcategories(works){
     myset.add(element.category.name + ":" + element.category.id)
   })
   myset.forEach(element => createFilters(element));
-  
 }
 
 function createFilters(element){
@@ -55,7 +57,14 @@ function createFilters(element){
 function filterWorks(categoryId) {
   let Gallery = document.querySelector(".gallery");
   Gallery.innerHTML = "";
-  const worksRequestOptions = {
+  if( categoryId == "0") {
+        afficherall(stockworks);
+      }
+      const filteredWorks = stockworks.filter(work => work.category.id == categoryId);
+      afficherall(filteredWorks);
+}
+
+  /**const worksRequestOptions = {
     method: "GET",
     redirect: "follow"
   };
@@ -69,5 +78,6 @@ function filterWorks(categoryId) {
       const filteredWorks = works.filter(work => work.category.id == categoryId);
       afficherall(filteredWorks);
     })
-    .catch((error) => console.error(error));
-}
+    .catch((error) => console.error(error));*/
+
+
