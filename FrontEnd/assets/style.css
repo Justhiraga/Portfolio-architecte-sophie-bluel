@@ -188,6 +188,19 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
+.errormsg {
+	color: red;
+	margin: 15px 0;
+	font-family: 'Syne';
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	right: 45%;
+	top: 35%;
+}
+
 #contact label {
 	margin: 2em 0 1em 0;
 }

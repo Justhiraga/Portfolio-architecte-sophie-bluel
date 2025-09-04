@@ -3,7 +3,6 @@ let stockworks = [];
 
 let myset = new Set();
 
-
 const worksRequestOptions = {
   method: "GET",
   redirect: "follow"
