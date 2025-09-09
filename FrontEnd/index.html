@@ -11,17 +11,20 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="./assets/script.js" defer></script>
 	<script src="./assets/admin.js" defer></script>
+	<script src=".assets/edit.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body class="main-container">
+	<div class="edit">
+		<p><i class="fa-regular fa-pen-to-square f-edit"></i> Mode édition</p>
+	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<a href="./login.html">
-				<li>login</li>
-			</a>
+			<li> <a href="./login.html" class="btnlog">login</a></li>
 			<li><img src="./assets/icons/instagram.png" width="22px" height="22px" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -39,7 +42,12 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="portfolio-modif">
+				<h2>Mes Projets</h2>
+			<div class="modif">
+				<p><i class="fa-regular fa-pen-to-square"></i> modifier</p>
+			</div>
+			</div>
 		<div class="filtres">
 		</div>
 		<div class="gallery"></div>

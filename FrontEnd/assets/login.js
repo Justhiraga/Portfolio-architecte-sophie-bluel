@@ -31,5 +31,7 @@ function userLogin() {
     .catch((error) => {
       errorMsg.textContent = error.message;
       errorMsg.style.display = "flex";
+      document.querySelectorAll("input").forEach(item => item.classList.add("inputerror"))
+      
     });
 }

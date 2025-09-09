@@ -1,4 +1,9 @@
 //WORKS*******************************//
+let isAdmin = false;
+if(localStorage.getItem("token")){
+  isAdmin = true;
+}
+
 let stockworks = [];
 
 let myset = new Set();
@@ -7,6 +12,9 @@ const worksRequestOptions = {
   method: "GET",
   redirect: "follow"
 };
+
+
+
 
 fetch("http://localhost:5678/api/works", worksRequestOptions)
   .then((response) => response.json())
@@ -37,7 +45,9 @@ function exctractcategories(works){
   works.forEach(element => {
     myset.add(element.category.name + ":" + element.category.id)
   })
-  myset.forEach(element => createFilters(element));
+  if(!isAdmin){
+    myset.forEach(element => createFilters(element));
+  }
 }
 
 function createFilters(element){
