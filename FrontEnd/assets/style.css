@@ -65,8 +65,10 @@ body {
 	padding: 16px;
 	font-family: 'work sans';
 	font-weight: 400;
-	width: 100%;
+
 }
+
+
 
 .f-edit{
 	padding-left: 11px;;
@@ -153,9 +155,11 @@ li:hover {
 	justify-content: center;
     gap: 20px;
 }
-.portfolio-modif .modif {
+
+.modif{
 	display: flex;
 	flex-direction: row;
+	cursor: pointer;
 }
 
 .modif p{
@@ -290,4 +294,12 @@ a{
 	font-family: 'Work Sans';
 	font-size:14px;
 	letter-spacing: 0.1em;
+}
+
+.carre-img{
+	width: calc(90% / 5);
+}
+
+.hidden{
+	display: none;
 }
