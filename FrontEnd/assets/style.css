@@ -296,9 +296,83 @@ a{
 	letter-spacing: 0.1em;
 }
 
+.carre{
+	width: 630px;
+	height: 688px;
+	background-color: white;
+	border-radius: 10px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: rgba(0, 0, 0, 0.8);
+	z-index: 1000;
+}
+
+.backgroundOverlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+
+.closebtn{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.carretitle{
+	font-family: 'work sans';
+	font-weight: 400;
+	font-size: 26px;
+	text-align: center;
+	margin-top: 60px;
+	color: black;
+}
+
+.galleryContainer{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 80px 80px 0 80px;
+	margin-left: 30px;
+}
+
+
 .carre-img{
 	width: calc(90% / 5);
+	margin-bottom: 25px;
+	width: 76px; ;
+	height: 100px;
+	position: relative;
+    display: inline-block;
 }
+
+
+.delete-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: black;
+	color: white;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.delete-btn i{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 
 .hidden{
 	display: none;
