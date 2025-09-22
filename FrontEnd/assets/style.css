@@ -225,11 +225,54 @@ margin: auto;
 	flex-direction: column;
 }
 
+.label-carre{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+
+.contact-form {
+    text-align: left;
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+	gap: 21px;
+}
+
 #contact input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.contact-input {
+	margin-top: 10px;
+    height: 51px;
+	width: 420px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.select-style{
+	margin-top: 10px;
+    padding: 5px 8px;
+    width: 420px;
+	height: 51px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-style:focus{
+	outline: none;
 }
 
 #contact input.inputerror {
@@ -255,6 +298,8 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
+
 
 input[type="submit"], button[type="submit"]{
 	font-family: 'Syne';

@@ -71,20 +71,13 @@ function filterWorks(categoryId) {
       afficherall(filteredWorks);
 }
 
-  /**const worksRequestOptions = {
+  /*const requestOptions = {
     method: "GET",
     redirect: "follow"
   };
 
-  fetch("http://localhost:5678/api/works", worksRequestOptions)
-    .then((response) => response.json())
-    .then((works) => {
-      if( categoryId == "0") {
-        afficherall(works);
-      }
-      const filteredWorks = works.filter(work => work.category.id == categoryId);
-      afficherall(filteredWorks);
-    })
-    .catch((error) => console.error(error));*/
-
-
+  fetch("http://localhost:5678/api/categories", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+    */
