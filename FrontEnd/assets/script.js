@@ -70,14 +70,3 @@ function filterWorks(categoryId) {
       const filteredWorks = stockworks.filter(work => work.category.id == categoryId);
       afficherall(filteredWorks);
 }
-
-  /*const requestOptions = {
-    method: "GET",
-    redirect: "follow"
-  };
-
-  fetch("http://localhost:5678/api/categories", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
-    */
