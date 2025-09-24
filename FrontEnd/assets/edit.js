@@ -348,6 +348,8 @@ function popupAddcarre2(carre, backgroundOverlay, onBgClick) {
                 stockworks.push(newWork);
                 myset.add(newWork.category.name + ":" + newWork.category.id);
         })
+        
+        removecbg2();
     }); 
 
 }
