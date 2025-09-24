@@ -85,6 +85,10 @@ modifcard.addEventListener("click", function() {
             .then(() => {
                 images.remove();
                 const galleryFigures = mainGallery.querySelectorAll("figure");
+                stockworks.forEach((item, index) => {
+                    if (item.id === work.id) {
+                        stockworks.splice(index, 1);
+                    }});
                 galleryFigures.forEach(figure => {
                     const img = figure.querySelector("img");
                     if (img && img.src === work.imageUrl) {
@@ -346,7 +350,7 @@ function popupAddcarre2(carre, backgroundOverlay, onBgClick) {
                 figure.appendChild(caption);
                 gallery.appendChild(figure);
                 stockworks.push(newWork);
-                myset.add(newWork.category.name + ":" + newWork.category.id);
+                myset.add(newWork.title + ":" + newWork.id);
         })
         
         removecbg2();
