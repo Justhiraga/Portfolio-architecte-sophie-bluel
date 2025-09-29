@@ -296,17 +296,24 @@ function popupAddcarre2(carre, backgroundOverlay, onBgClick) {
     form.appendChild(submitBtn);
     carre2.appendChild(submitBtn);
 
-    form.addEventListener("input", function() {
-        if (inputfile.files.length > 0 && titleInput.value.trim() !== "" && categoryselect.value !== "") {
+    function updateSubmitBtn() {
+        if (
+            inputfile.files.length > 0 &&
+            titleInput.value.trim() !== "" &&
+            categoryselect.value !== ""
+        ) {
             submitBtn.classList.remove("btnempty");
             submitBtn.classList.add("btnadd");
-            submitBtn.style.pointerEvents = "auto"; 
+            submitBtn.style.pointerEvents = "auto";
         } else {
             submitBtn.classList.remove("btnadd");
             submitBtn.classList.add("btnempty");
-            submitBtn.style.pointerEvents = "none"; 
+            submitBtn.style.pointerEvents = "none";
         }
-    });
+    }
+
+    form.addEventListener("input", updateSubmitBtn);
+    inputfile.addEventListener("change", updateSubmitBtn);
 
     submitBtn.addEventListener("click", function() {
         const file = inputfile.files[0];

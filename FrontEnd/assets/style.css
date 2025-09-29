@@ -299,14 +299,11 @@ margin: auto;
 
 .errormsg {
 	color: red;
-	margin: 15px 0;
+	margin-top: 10px;
 	font-family: 'Syne';
 	font-weight: 700;
 	display: flex;
 	justify-content: center;
-	position: absolute;
-	right: 45%;
-	top: 35%;
 }
 
 #contact label {
